@@ -46,6 +46,8 @@ public class Emoji {
 			put(";)", 0x1F609);
 			put(":-P", 0x1F61C);
 			put(":P", 0x1F61C);
+			put(":-p", 0x1F61C);
+			put(":p", 0x1F61C);
 			put(":-*", 0x1F618);
 			put(":*", 0x1F618);
 			put("<3", 0x2764);
