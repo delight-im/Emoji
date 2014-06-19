@@ -16,14 +16,22 @@ package im.delight.faceless;
  * limitations under the License.
  */
 
+import java.util.regex.Pattern;
 import java.util.HashMap;
 
 /** Lets you replace all emoticons in a text with their corresponding Unicode Emoji by calling replaceInText(...) */
 public class Emoji {
 	
+	/** A character class containing special chars often used with emoticons */
+	private static final String REGEX_CLASS_SPECIAL_CHARS = "[-_)(;:*<>=/]";
+	/** A negative look-behind ensuring that the match is not preceded by one of the special chars above */
+	private static final String REGEX_NEGATIVE_LOOKBEHIND = "(?<!"+REGEX_CLASS_SPECIAL_CHARS+")";
+	/** A negative look-ahead ensuring that the match is not followed by one of the special chars above */
+	private static final String REGEX_NEGATIVE_LOOKAHEAD = "(?!"+REGEX_CLASS_SPECIAL_CHARS+")";
+	
 	private static class ReplacementsMap extends HashMap<String,Integer> {
 
-		private static final long serialVersionUID = 4948071414363715958L;
+		private static final long serialVersionUID = 4948071414363715959L;
 		private static ReplacementsMap mInstance;
 
 		private ReplacementsMap() {
@@ -77,8 +85,13 @@ public class Emoji {
 		}
 		else {
 			String unicodeChar = getUnicodeChar(codepoint.intValue());
-			return text.replace(emoticon, unicodeChar);
+			return text.replaceAll(getEmoticonSearchRegex(emoticon), unicodeChar);
 		}
+	}
+	
+	/** Constructs a regular expression which ensures that the emoticon is not part of a longer string of special chars (e.g. <:)))> or <http://> which both include basic emoticons) */
+	private static String getEmoticonSearchRegex(String emoticon) {
+		return REGEX_NEGATIVE_LOOKBEHIND+"("+Pattern.quote(emoticon)+")"+REGEX_NEGATIVE_LOOKAHEAD;
 	}
 	
 	/**
