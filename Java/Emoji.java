@@ -84,7 +84,7 @@ public class Emoji {
 	private static String getEmoticonSearchRegex(String emoticon) {
 		return REGEX_NEGATIVE_LOOKBEHIND+"("+Pattern.quote(emoticon)+")"+REGEX_NEGATIVE_LOOKAHEAD;
 	}
-	
+
 	/**
 	 * Replaces all emoticons in the given text with their corresponding Unicode Emoji
 	 * 
@@ -92,6 +92,17 @@ public class Emoji {
 	 * @return the new String containing the Unicode Emoji
 	 */
 	public static String replaceInText(String text) {
+		return replaceInText(text, false);
+	}
+
+	/**
+	 * Converts between emoticons and their corresponding Unicode Emoji in the given text
+	 * 
+	 * @param text the String to search and replace in
+	 * @param reverse whether to replace emoticons with emoji as usual (false) or revert emoji to emoticons (true)
+	 * @return the new String containing the the converted entities
+	 */
+	public static String replaceInText(String text, boolean reverse) {
 		final ReplacementsMap replacements = ReplacementsMap.getInstance();
 		String emoticon;
 		Integer codepoint;
@@ -102,7 +113,12 @@ public class Emoji {
 				codepoint = entry.getValue();
 				if (emoticon != null && codepoint != null) {
 					String unicodeChar = getUnicodeChar(codepoint.intValue());
-					text = text.replaceAll(getEmoticonSearchRegex(emoticon), unicodeChar);
+					if (reverse) {
+						text = text.replace(unicodeChar, emoticon);
+					}
+					else {
+						text = text.replaceAll(getEmoticonSearchRegex(emoticon), unicodeChar);
+					}
 				}
 			}
 		}
