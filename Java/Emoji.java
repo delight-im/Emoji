@@ -16,6 +16,7 @@ package im.delight.faceless;
  * limitations under the License.
  */
 
+import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.HashMap;
 
@@ -79,18 +80,6 @@ public class Emoji {
 		return new String(Character.toChars(codepoint));
 	}
 	
-	private static String replaceEmoticon(String text, String emoticon) {
-		ReplacementsMap replacements = ReplacementsMap.getInstance();
-		Integer codepoint = replacements.get(emoticon);
-		if (codepoint == null) {
-			return text;
-		}
-		else {
-			String unicodeChar = getUnicodeChar(codepoint.intValue());
-			return text.replaceAll(getEmoticonSearchRegex(emoticon), unicodeChar);
-		}
-	}
-	
 	/** Constructs a regular expression which ensures that the emoticon is not part of a longer string of special chars (e.g. <:)))> or <http://> which both include basic emoticons) */
 	private static String getEmoticonSearchRegex(String emoticon) {
 		return REGEX_NEGATIVE_LOOKBEHIND+"("+Pattern.quote(emoticon)+")"+REGEX_NEGATIVE_LOOKAHEAD;
@@ -103,10 +92,21 @@ public class Emoji {
 	 * @return the new String containing the Unicode Emoji
 	 */
 	public static String replaceInText(String text) {
-		ReplacementsMap replacements = ReplacementsMap.getInstance();
-		for (String emoticon : replacements.keySet()) {
-			text = replaceEmoticon(text, emoticon);
+		final ReplacementsMap replacements = ReplacementsMap.getInstance();
+		String emoticon;
+		Integer codepoint;
+
+		for (Map.Entry<String, Integer> entry : replacements.entrySet()) {
+			if (entry != null) {
+				emoticon = entry.getKey();
+				codepoint = entry.getValue();
+				if (emoticon != null && codepoint != null) {
+					String unicodeChar = getUnicodeChar(codepoint.intValue());
+					text = text.replaceAll(getEmoticonSearchRegex(emoticon), unicodeChar);
+				}
+			}
 		}
+
 		return text;
 	}
 
