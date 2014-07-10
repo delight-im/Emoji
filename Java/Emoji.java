@@ -1,5 +1,3 @@
-package im.delight.faceless;
-
 /**
  * Copyright 2014 www.delight.im <info@delight.im>
  * 
