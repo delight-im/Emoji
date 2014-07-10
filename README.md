@@ -26,13 +26,21 @@ Common emoticons and the corresponding Emoji as defined in Unicode
 
 ## System requirements
 
+# Charsets
+
 Emoji require a character encoding that can represent the specific characters from the Unicode character set. Common examples are UTF-8 and UTF-16.
 
 UTF-16 uses 2 bytes for all characters in the Basic Multilingual Plane (BMP) which includes all code points up to U+FFFF. For characters above that code point, it uses 4 bytes (non-BMP).
 
+# GSM (SMS)
+
 GSM text messages (SMS) must be encoded in UTF-16 (70 chars limit) instead of the GSM 7-bit alphabet (160 chars limit) if you want to use Emoji. Non-BMP characters consume 2 of the 70 characters each.
 
+# Java
+
 In Java, only BMP characters fit into a single `char`. `Character.toChars(...)` returns `char[]` with a size of 1 for BMP characters and 2 for non-BMP characters.
+
+# MySQL
 
 On MySQL 5.5.3+, you have to use the `utf8mb4` encoding instead of `utf8` because it introduces support for non-BMP characters. Prior to that MySQL version, you would have to use a `BLOB` instead, for example.
 
