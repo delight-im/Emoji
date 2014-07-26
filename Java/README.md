@@ -10,14 +10,15 @@ This allows for a graphical representation of the symbols, e.g. through bitmap g
 
 ## Usage
 
-```
+````
 String myString;
 
-myString = "Smiling face :-)";
-// Smiling face :-)
+myString = "Smiling face :-) is shown";
+// Smiling face :-) is shown
 
 myString = Emoji.replaceInText(myString);
-// Smiling face 😊```
+// Smiling face 😊 is shown
+````
 
 ## Replacements
 

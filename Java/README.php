@@ -57,15 +57,15 @@ This allows for a graphical representation of the symbols, e.g. through bitmap g
 
 ## Usage
 
-```
+````
 String myString;
 
-myString = "Smiling face :-)";
-// Smiling face :-)
+myString = "Smiling face :-) is shown";
+// Smiling face :-) is shown
 
 myString = Emoji.replaceInText(myString);
-// Smiling face <?php echo utf8(0x1F60A); ?>
-```
+// Smiling face <?php echo utf8(0x1F60A); ?> is shown
+````
 
 ## Replacements
 
