@@ -1,4 +1,6 @@
-# Android-Emoji
+# AndroidEmoji
+
+Emoji support for Android on every API level and platform version
 
 ## The problem
 
@@ -10,7 +12,7 @@ Thus all Android versions prior to Android 4.1.1 do not display emoji at all.
 
 ## The solution
 
-When you call `AndroidEmoji.ensure(...)` from this library on a string, it makes sure that any emoji contained in this string will be displayed correctly. This is done by setting the typeface for the single emoji symbols to a font supporting emoji.
+When you call `AndroidEmoji.ensure(...)` from this library on a string, it makes sure that the emoji contained in the string will be displayed correctly on all Android versions. This is done by setting a custom font for the single emoji symbols in the text.
 
 ## Installation
 
@@ -28,7 +30,7 @@ myTextView.setText(AndroidEmoji.ensure(myString));
 
 ## Known issues
 
- * Even with this library, your app cannot display emoji that are not in the [EmojiSources.txt](http://www.unicode.org/Public/UNIDATA/EmojiSources.txt) file. This is normal behaviour for Android versions prior to 4.4 (KitKat), however.
+ * Even with this library, your app cannot display emoji that are not in the [EmojiSources.txt](http://www.unicode.org/Public/UNIDATA/EmojiSources.txt) file. This is normal behaviour for Android versions prior to 4.4 (KitKat), however, because `AndroidEmoji.ttf` does not contain newer emoji.
 
 ## Third-party components
 

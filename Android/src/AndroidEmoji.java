@@ -25,7 +25,7 @@ import android.text.TextPaint;
 import android.text.style.MetricAffectingSpan;
 
 /**
- * Emoji support for Android down to 2.2 (API level 8)
+ * Emoji support for Android on every API level and platform version
  * <p>
  * Usage: CharSequence myCharSequence = AndroidEmoji.ensure(myString);
  */
