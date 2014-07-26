@@ -1,28 +1,7 @@
 # Emoji
 
-Common emoticons and the corresponding Emoji as defined in Unicode
-
-## Emoticons and Unicode
-
-| Emoticon                                      | Emoji                        | Unicode   | Description                                |
-| :-------------------------------------------: | :--------------------------: | --------: | :----------------------------------------- |
-| `:-)` or `:)`                                 | 😊 | `U+1F60A` | SMILING FACE WITH SMILING EYES             |
-| `:-(` or `:(`                                 | 😞 | `U+1F61E` | DISAPPOINTED FACE                          |
-| `:-D` or `:D`                                 | 😃 | `U+1F603` | SMILING FACE WITH OPEN MOUTH               |
-| `;-)` or `;)`                                 | 😉 | `U+1F609` | WINKING FACE                               |
-| `:-P` or `:P`                                 | 😜 | `U+1F61C` | FACE WITH STUCK-OUT TONGUE AND WINKING EYE |
-| `:-*` or `:*`                                 | 😘 | `U+1F618` | FACE THROWING A KISS                       |
-| <code>&lt;3</code> or `:3`                    | ❤  | `U+2764`  | HEAVY BLACK HEART                          |
-| <code>&gt;:[</code>                           | 😡 | `U+1F621` | POUTING FACE                               |
-| <code>:'&#124;</code>                         | 😥 | `U+1F625` | DISAPPOINTED BUT RELIEVED FACE             |
-| `:-[`                                         | 😩 | `U+1F629` | WEARY FACE                                 |
-| `:'(`                                         | 😭 | `U+1F62D` | LOUDLY CRYING FACE                         |
-| `=O`                                          | 😱 | `U+1F631` | FACE SCREAMING IN FEAR                     |
-| `xD`                                          | 😁 | `U+1F601` | GRINNING FACE WITH SMILING EYES            |
-| `:')`                                         | 😂 | `U+1F602` | FACE WITH TEARS OF JOY                     |
-| `:-/` or `:/`                                 | 😒 | `U+1F612` | UNAMUSED FACE                              |
-| <code>:-&#124;</code> or <code>:&#124;</code> | 😔 | `U+1F614` | PENSIVE FACE                               |
-| `*_*`                                         | 😍 | `U+1F60D` | SMILING FACE WITH HEART-SHAPED EYES        |
+ * `[Java/](Java/)`: converts emoticons to their corresponding Unicode emoji
+ * `[Android/](Android/)`: provides support for Unicode emoji with backwards-compatibility down to Android 2.2
 
 ## System requirements
 
