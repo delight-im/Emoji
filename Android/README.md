@@ -1,6 +1,6 @@
 # AndroidEmoji
 
-Emoji support for Android on every API level and platform version
+Emoji support for Android down to API level 8 (Android 2.2)
 
 ## The problem
 
