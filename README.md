@@ -1,7 +1,7 @@
 # Emoji
 
- * `[Java/](Java/)`: converts emoticons to their corresponding Unicode emoji
- * `[Android/](Android/)`: provides support for Unicode emoji with backwards-compatibility down to Android 2.2
+ * [`Android`](Android/): provides support for Unicode emoji with backwards-compatibility down to Android 2.2
+ * [`Java`](Java/): converts emoticons to their corresponding Unicode emoji
 
 ## System requirements
 
