@@ -27,12 +27,12 @@ import java.util.HashMap;
  */
 public class Emoji {
 
-	/** A character class containing special chars often used with emoticons */
-	private static final String REGEX_CLASS_SPECIAL_CHARS = "[-_)(;:*<>=/]";
-	/** A negative look-behind ensuring that the match is not preceded by one of the special chars above */
-	private static final String REGEX_NEGATIVE_LOOKBEHIND = "(?<!"+REGEX_CLASS_SPECIAL_CHARS+")";
-	/** A negative look-ahead ensuring that the match is not followed by one of the special chars above */
-	private static final String REGEX_NEGATIVE_LOOKAHEAD = "(?!"+REGEX_CLASS_SPECIAL_CHARS+")";
+	/** Characters that may not occur immediately before or after an emoticon */
+	private static final String REGEX_SURROUNDING_CHARS_DISALLOWED = "[-_a-zA-Z0-9)(;:*<>=/]";
+	/** A negative look-behind ensuring that the match is not preceded by one of the characters above */
+	private static final String REGEX_NEGATIVE_LOOKBEHIND = "(?<!"+REGEX_SURROUNDING_CHARS_DISALLOWED+")";
+	/** A negative look-ahead ensuring that the match is not followed by one of the characters above */
+	private static final String REGEX_NEGATIVE_LOOKAHEAD = "(?!"+REGEX_SURROUNDING_CHARS_DISALLOWED+")";
 
 	private static class ReplacementsMap extends HashMap<String,Integer> {
 
