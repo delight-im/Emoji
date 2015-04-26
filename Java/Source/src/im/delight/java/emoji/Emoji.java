@@ -1,20 +1,20 @@
+package im.delight.java.emoji;
+
 /**
  * Copyright 2014 www.delight.im <info@delight.im>
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/** Source: <https://github.com/delight-im/Emoji> */
 
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -26,14 +26,14 @@ import java.util.HashMap;
  * Usage: String myEmojiString = Emoji.replaceInText(myString);
  */
 public class Emoji {
-	
+
 	/** A character class containing special chars often used with emoticons */
 	private static final String REGEX_CLASS_SPECIAL_CHARS = "[-_)(;:*<>=/]";
 	/** A negative look-behind ensuring that the match is not preceded by one of the special chars above */
 	private static final String REGEX_NEGATIVE_LOOKBEHIND = "(?<!"+REGEX_CLASS_SPECIAL_CHARS+")";
 	/** A negative look-ahead ensuring that the match is not followed by one of the special chars above */
 	private static final String REGEX_NEGATIVE_LOOKAHEAD = "(?!"+REGEX_CLASS_SPECIAL_CHARS+")";
-	
+
 	private static class ReplacementsMap extends HashMap<String,Integer> {
 
 		private static final long serialVersionUID = 4948071414363715959L;
@@ -70,7 +70,7 @@ public class Emoji {
 			put(":|", 0x1F614);
 			put("*_*", 0x1F60D);
 		}
-		
+
 		public static ReplacementsMap getInstance() {
 			if (mInstance == null) {
 				mInstance = new ReplacementsMap();
@@ -79,11 +79,11 @@ public class Emoji {
 		}
 
 	}
-	
+
 	private static String getUnicodeChar(int codepoint) {
 		return new String(Character.toChars(codepoint));
 	}
-	
+
 	/** Constructs a regular expression which ensures that the emoticon is not part of a longer string of special chars (e.g. <:)))> or <http://> which both include basic emoticons) */
 	private static String getEmoticonSearchRegex(String emoticon) {
 		return REGEX_NEGATIVE_LOOKBEHIND+"("+Pattern.quote(emoticon)+")"+REGEX_NEGATIVE_LOOKAHEAD;
@@ -91,7 +91,7 @@ public class Emoji {
 
 	/**
 	 * Replaces all emoticons in the given text with their corresponding Unicode Emoji
-	 * 
+	 *
 	 * @param text the String to search and replace in
 	 * @return the new String containing the Unicode Emoji
 	 */
@@ -101,7 +101,7 @@ public class Emoji {
 
 	/**
 	 * Converts between emoticons and their corresponding Unicode Emoji in the given text
-	 * 
+	 *
 	 * @param text the String to search and replace in
 	 * @param reverse whether to replace emoticons with emoji as usual (false) or revert emoji to emoticons (true)
 	 * @return the new String containing the the converted entities
