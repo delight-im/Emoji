@@ -1,7 +1,7 @@
 <?php
 
-/**
- * Copyright 2014 www.delight.im <info@delight.im>
+/*
+ * Copyright (c) delight.im <info@delight.im>
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -92,7 +92,7 @@ myString = Emoji.replaceInText(myString);
 ## License
 
 ```
-Copyright 2014 www.delight.im <info@delight.im>
+Copyright (c) delight.im <info@delight.im>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
